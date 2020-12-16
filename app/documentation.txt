@@ -1,0 +1,33 @@
+Hier ist eine Dokumentation der Schritte in diesem Projekt:
+1) zuerst wird eine frische Version für Laravel erstellt
+2) composer create-project laravel/laravel example-app
+3) In .env wird der DatabaseName eingetragen
+4) Dann .. php artisan migrate.
+5) install Jetstream
+composer require laravel/jetstream
+6) Install livewire or inertia
+php artisan jetstream:install livewire
+7) run npm install && npm run dev
+8) Dann mache ich .. php artisan migrate
+9) Das project läuft jetzt unter http://127.0.0.1:8000/
+10) Ich registriere mich und loge ich mich ein
+11) So dann wird ein model product erstellt mit allen was dazu gehört
+12) php artisan make:model Product --all
+13) Ruft man die migration und erweitert diese und einige Spalten
+14) So gleichzeitig werden zufällige Daten für product erstellt mit Hilfe von Factory
+15) Also gehe ich in database\factories\ProoductFactory und fügt man folgendes
+public function definition()
+    {
+        return [
+            'title' => $this->faker->sentence(6),
+            'title' => $this->faker->numberBetween(50, 300),
+            'title' => $this->faker->imageUrl($widt=640, $height=400, 'technics'),
+        ];
+    }
+
+16) Dann .. composer dump-autoload
+17) Dann kommen .. 
+18) php artisan tinker
+    Product::factory()->count(20)->create();
+
+ 
