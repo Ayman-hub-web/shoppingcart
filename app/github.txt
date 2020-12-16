@@ -9,3 +9,4 @@ Hier eine kurze Einführung wie man auf github seine Projekte hochladen kann.
 - Dann am Ende pusht man das Ganze: git push -u origin master
 - Vielleicht wenn ich auf github nicht eingeloggt bin fragt nach dem username und password und ich gebe
   das auch mit.
+- Am Ende wird folgender Befehl ausgeführt: git push -u origin master
