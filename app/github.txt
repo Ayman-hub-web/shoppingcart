@@ -1,0 +1,11 @@
+Hier eine kurze Einführung wie man auf github seine Projekte hochladen kann.
+- Zuerst öffnet man sein git terminal in dem Projektverzeichniss
+- Dann geht man in sein github und kreat ein leeres reporsitory und gibt einen Namen und 
+    eine kurze Beschreibung und wählt das gabze public
+- Zurück zu git terminal und erstellen ein leeres git mit: git init
+- Ich füge alles zu .git mit: git add .
+- So dann kommite ich wie folgt: git commit -m "my first commit"
+- Dann kommt folgender Befehl: git remote add origin https://github.com/Ayman-hub-web/shoppingcart.git
+- Dann am Ende pusht man das Ganze: git push -u origin master
+- Vielleicht wenn ich auf github nicht eingeloggt bin fragt nach dem username und password und ich gebe
+  das auch mit.
