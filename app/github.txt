@@ -10,3 +10,9 @@ Hier eine kurze Einführung wie man auf github seine Projekte hochladen kann.
 - Vielleicht wenn ich auf github nicht eingeloggt bin fragt nach dem username und password und ich gebe
   das auch mit.
 - Am Ende wird folgender Befehl ausgeführt: git push -u origin master
+- Also ganz einfach immer mit wenn ich etwas neues schreibe und eine neue Datei einfüge dann frage ikch 
+  nach dem status mit: git status
+- Dann steht meistens ein Hinweis was ich machen soll.
+- Wenn die Datei neu ist füge ich diese Datei mit: git add dateiname natürlich mit dem ganzen Pfad
+- So wenn ich mir sicher bin daß ich die Änderung endgultig speichern will, dann mache ein commit
+- So und am Ende pushe ich das Ganze auf github
