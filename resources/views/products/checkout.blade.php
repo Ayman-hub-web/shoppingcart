@@ -48,7 +48,7 @@
                 </div>
 
                 <button class="btn btn-primary mt-3">Submit Payment</button>
-                <p id="loading" style="display:none;">Payment is in process. Please wait...</p>
+                <p id="loading" style="display:none;">Payment in process. Please wait...</p>
             </form>
         </div>
     </div>
