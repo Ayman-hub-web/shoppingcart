@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Models\Cart;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,6 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        if(session('success')){
+            toast(session('success'), 'success');
+        }
         $products = Product::all();
         return view('products.index', compact('products'));
     }

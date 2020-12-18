@@ -43,3 +43,13 @@ public function definition()
     Und das kommt unter den Klammern den secret Schlüssel unetr dem public Schlüssel auf der Seite
     https://dashboard.stripe.com/test/dashboard das ist die Seite von Stripe.com wo ich mich eingeloggt
     habe und dann aud dashboard sind diese Informationen.
+
+21) Um alerts innerhalb des Projektes zu zeigen, benutze ich ein package https://github.com/realrashid/sweet-alert 
+    und das kann man per composer einfpügen.
+
+22) Um diese alerts benutzen zu können, gehen wir in den Controller, der für die angezeigten Seiten 
+    zuständig ist und fügen wir in die Index-Methode folgt<.
+    if(session('success')){
+            toast(session('success'), 'success');
+        }
+    und so wenn man dann die Metode aufruft, bekommt man diese schöne alerts angezeigt.
