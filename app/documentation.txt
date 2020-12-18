@@ -38,7 +38,7 @@ public function definition()
 
 20) Wichtig auch in der Datei config/services mache ich eine Erweiterung 
     'stripe' => [
-        'secret' => 'your-stripe-key-here',
+        'secret' => 'your-stripe-key-here', //hier kommt der Secret-Schlüssel von der Stripe-webseite
     ],
     Und das kommt unter den Klammern den secret Schlüssel unetr dem public Schlüssel auf der Seite
     https://dashboard.stripe.com/test/dashboard das ist die Seite von Stripe.com wo ich mich eingeloggt
