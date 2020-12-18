@@ -20,8 +20,8 @@ public function definition()
     {
         return [
             'title' => $this->faker->sentence(6),
-            'title' => $this->faker->numberBetween(50, 300),
-            'title' => $this->faker->imageUrl($widt=640, $height=400, 'technics'),
+            'price' => $this->faker->numberBetween(50, 300),
+            'image' => $this->faker->imageUrl($widt=640, $height=400, 'technics'),
         ];
     }
 
@@ -29,5 +29,17 @@ public function definition()
 17) Dann kommen .. 
 18) php artisan tinker
     Product::factory()->count(20)->create();
+    
+19) Wichtig bi diesem Projekt zu erwähnen ist die Benutzung vin Stripe payment um die Zahlung
+    abzuwickeln. Hier arnbeite ikch nach dem Tutorial https://www.youtube.com/watch?v=tG03kmRn6uw&list=PLXgJ7cArk9uQ2MoHBqC2JuWmyPqdBUYkO&index=11
+    Hier werden diese Schritte erklärt (unter github https://github.com/alzaabi98/shoppingCart-laravel). Dann kommt eine Bibliothek zum Einsatz
+    unter der Adresse https://cartalyst.com/manual/stripe-laravel/13.x. So es werden mehrere Änderungen in
+    verschiedenen Dateien vorgenommen wie es im Tutorial erklärt wird.
 
- 
+20) Wichtig auch in der Datei config/services mache ich eine Erweiterung 
+    'stripe' => [
+        'secret' => 'your-stripe-key-here',
+    ],
+    Und das kommt unter den Klammern den secret Schlüssel unetr dem public Schlüssel auf der Seite
+    https://dashboard.stripe.com/test/dashboard das ist die Seite von Stripe.com wo ich mich eingeloggt
+    habe und dann aud dashboard sind diese Informationen.

@@ -27,4 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/addToCart/{product}', [ProductController::class, 'addToCart'])->name('cart.add');
     Route::get('/shopping-cart', [ProductController::class, 'showCart'])->name('cart.show');
     Route::get('/checkout/{amount}', [ProductController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/charge', [ProductController::class, 'charge'])->name('cart.charge');
 });

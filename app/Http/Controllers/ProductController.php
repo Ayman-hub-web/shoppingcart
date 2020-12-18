@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 
@@ -107,5 +108,27 @@ class ProductController extends Controller
 
     public function checkout($amount){
         return view('products.checkout', compact('amount'));
+    }
+
+    public function charge(Request $request) {
+        //dd($request->stripeToken);
+        $charge = Stripe::charges()->create([
+            'currency' => 'USD',
+            'source' => $request->stripeToken,
+            'amount'   => $request->amount,
+            'description' => ' Test from laravel new app'
+        ]);
+
+        $chargeId = $charge['id'];
+
+        if ($chargeId) {
+            // save order in orders table ...
+            // clearn cart 
+
+            session()->forget('cart');  
+            return redirect()->route('cart.index')->with('success', " Payment was done. Thanks");
+        } else {
+            return redirect()->back();
+        }
     }
 }
