@@ -48,6 +48,7 @@
                 </div>
 
                 <button class="btn btn-primary mt-3">Submit Payment</button>
+                <p id="loading" style="display:none;">Payment is in process. Please wait...</p>
             </form>
         </div>
     </div>
@@ -112,6 +113,8 @@
                 hiddenInput.setAttribute('value', token.id);
                 form.appendChild(hiddenInput);
                 // Submit the form
+                var loading = document.getElementById('loading');
+                loading.style.display = "block";
                 form.submit();
             }
         }

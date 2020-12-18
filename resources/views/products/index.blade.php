@@ -4,8 +4,8 @@
     <section>
     <div>
     @if( session()->has('success'))
-                    <div class="alert alert-success">{{ session()->get('success') }}</div>
-                @endif
+        <div class="alert alert-success">{{ session()->get('success') }}</div>
+    @endif
     </div>
     <div class="row mt-2">
     @foreach($products as $product)
