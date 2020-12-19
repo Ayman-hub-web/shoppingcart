@@ -56,3 +56,8 @@ public function definition()
 
 23) Nach dem man die Zahlung abgewickelt hat, muss dieser Order in der Datenbank gespeichert werden.
 24) Dazu wird ein Model Order erstellt mit migration und in ProductController wird dieser Order gespeichert.
+25) Die orders table besteht aus zwei Feldern, die id und cart. In cart kommt der gesamte Inhalt eines 
+    items aus shoppingcart. Dieses holt man mit der Funktion 'cart' => serialize(session()->get('cart')) und 
+    wird als text in order table geschrieben.
+26) Will man die Orders aus der Datenbank auslesen und anzeigen, so geht man so vor wie in OrderController
+    in der function index gezeigt wird.

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/shopping-cart', [ProductController::class, 'showCart'])->name('cart.show');
     Route::get('/checkout/{amount}', [ProductController::class, 'checkout'])->name('cart.checkout');
     Route::post('/charge', [ProductController::class, 'charge'])->name('cart.charge');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 });
