@@ -3,7 +3,7 @@
 <div class="container">
     <section>
         <div class="row">
-        @if($cart)
+        @if($cart->totalQty >= 1)
             <div class="col-md-8">
             @foreach($cart->items as $product)
                 <div class="card mb-2">
@@ -11,11 +11,15 @@
                         <h5 class="card-title">
                             {{$product['title']}}
                         </h5>
-                        <div class="card-text">
+                        <div class="card-text" style="display:flex;">
                             ${{$product['price']}}
-                            <a href="#" class="btn btn-danger btn-sm ml-4">Remove</a>
                             <input type="text" name="qty" id="qty" value="{{$product['Qty']}}">
-                            <a href="" class="btn btn-warning">Change</a>
+                            <a href="" class="btn btn-warning" style="margin-left:2px;margin-right:2px;">Change</a>
+                            <form action="{{route('product.remove', $product['id'])}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger">Remove</button>
+                            </form>
                         </div>
 
                     </div>

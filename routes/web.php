@@ -30,4 +30,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/checkout/{amount}', [ProductController::class, 'checkout'])->name('cart.checkout');
     Route::post('/charge', [ProductController::class, 'charge'])->name('cart.charge');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('product.remove');
 });
