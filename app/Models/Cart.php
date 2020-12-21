@@ -45,12 +45,27 @@ class Cart extends Model
         $this->items[$product->id]['Qty'] +=1;
     }
     
+    public function editCart($product, $Qty){
+        $this->totalQty += $Qty - $this->items[$product->id]['Qty'];
+        $this->totalPrice += $Qty*$this->items[$product->id]['price'] - $this->items[$product->id]['Qty']*$this->items[$product->id]['price'];
+        $this->items[$product->id]['Qty'] = $Qty;
+    }
+
     public function remove($id){
         
         if(array_key_exists($id, $this->items)){
             $this->totalQty -= $this->items[$id]['Qty'];
             $this->totalPrice -= $this->items[$id]['Qty'] * $this->items[$id]['price'];
             unset($this->items[$id]);
+        }
+    }
+
+    public function updateItem($id, $Qty){
+        if(array_key_exists($id, $this->items)){
+            $this->totalQty += $Qty - $this->items[$id]['Qty'];
+            $this->totalPrice += $Qty*$this->items[$id]['price'] - $this->items[$id]['Qty'] * $this->items[$id]['price'];
+            $this->items[$id]['Qty'] = $Qty;
+            //dd($this->items);
         }
     }
 }

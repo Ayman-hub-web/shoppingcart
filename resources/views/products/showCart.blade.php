@@ -14,7 +14,7 @@
                         <div class="card-text" style="display:flex;">
                             ${{$product['price']}}
                             <input type="text" name="qty" id="qty" value="{{$product['Qty']}}">
-                            <a href="" class="btn btn-warning" style="margin-left:2px;margin-right:2px;">Change</a>
+                            <a href="{{route('product.edit', $product['id'])}}" class="btn btn-warning" style="margin-left:2px;margin-right:2px;">Change</a>
                             <form action="{{route('product.remove', $product['id'])}}" method="post">
                             @csrf
                             @method('delete')

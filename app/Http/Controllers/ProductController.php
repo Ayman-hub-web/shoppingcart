@@ -7,6 +7,7 @@ use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use App\Models\Cart;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemRequest;
 
 class ProductController extends Controller
 {
@@ -64,7 +65,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        if(session()->has('cart')){
+            $cart = new Cart(session()->get('cart'));
+            $editItem = $cart->items[$product->id];
+            return view('products.editCart', compact('editItem'));
+        }else{
+            return redirect()->route('cart.show')->with('error', 'no item with this id');
+        }
+        
     }
 
     /**
@@ -74,9 +82,15 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ItemRequest $request, Product $product)
     {
-        //
+         if(session()->has('cart')){
+             $cart = session()->get('cart');
+             //$cart->items[$product->id]['Qty'] = $request->qty; 
+             $cart->updateItem($product->id, $request->qty);  
+             session()->put('cart', $cart);
+          }
+          return redirect()->route('cart.show')->with('success', 'Qantitty successfully changed!');
     }
 
     /**
